@@ -1,0 +1,24 @@
+# Normal traffic
+Jul 15 14:30:01 server sshd[12340]: Accepted publickey for admin from 192.168.1.100 port 54321 ssh2
+
+# Brute-force attack (root targeting)
+Jul 15 14:31:22 server sshd[12345]: Failed password for root from 192.168.1.50 port 2222 ssh2
+Jul 15 14:31:23 server sshd[12345]: Failed password for root from 192.168.1.50 port 2222 ssh2
+Jul 15 14:31:24 server sshd[12345]: Failed password for root from 192.168.1.50 port 2222 ssh2
+Jul 15 14:31:25 server sshd[12345]: Failed password for root from 192.168.1.50 port 2222 ssh2
+Jul 15 14:31:26 server sshd[12345]: Failed password for root from 192.168.1.50 port 2222 ssh2
+
+# Scanning activity (username enumeration)
+Jul 15 14:32:10 server sshd[12346]: Failed password for invalid user admin from 192.168.1.60 port 3333 ssh2
+Jul 15 14:32:11 server sshd[12346]: Failed password for invalid user test from 192.168.1.60 port 3333 ssh2
+Jul 15 14:32:12 server sshd[12346]: Failed password for invalid user guest from 192.168.1.60 port 3333 ssh2
+Jul 15 14:32:13 server sshd[12346]: Failed password for invalid user backup from 192.168.1.60 port 3333 ssh2
+Jul 15 14:32:14 server sshd[12346]: Failed password for invalid user oracle from 192.168.1.60 port 3333 ssh2
+
+# Continued brute-force
+Jul 15 14:33:01 server sshd[12345]: Failed password for root from 192.168.1.50 port 2222 ssh2
+Jul 15 14:33:02 server sshd[12345]: Accepted password for root from 192.168.1.50 port 2222 ssh2  # Compromise!
+
+# More scanning
+Jul 15 14:34:05 server sshd[12347]: Failed password for invalid user wpadmin from 192.168.1.60 port 3333 ssh2
+Jul 15 14:34:06 server sshd[12347]: Failed password for invalid user dbadmin from 192.168.1.60 port 3333 ssh2
