@@ -1,4 +1,3 @@
-```markdown
 # Log File Analyzer for Intrusion Detection
 
 ![Python](https://img.shields.io/badge/Python-3.11%2B-blue)
@@ -30,8 +29,6 @@ venv\Scripts\activate
 
 # Install dependencies
 pip install -r requirements.txt
-```
-
 ## Usage
 
 ### Web Interface
