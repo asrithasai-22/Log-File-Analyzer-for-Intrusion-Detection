@@ -1,0 +1,24 @@
+# Normal traffic
+192.168.1.105 - - [15/Jul/2023:14:35:01 +0000] "GET /index.html HTTP/1.1" 200 2326
+192.168.1.105 - - [15/Jul/2023:14:35:02 +0000] "GET /style.css HTTP/1.1" 200 543
+
+# Scanning activity (vulnerability probing)
+192.168.1.70 - - [15/Jul/2023:14:35:10 +0000] "GET /wp-login.php HTTP/1.1" 404 321
+192.168.1.70 - - [15/Jul/2023:14:35:11 +0000] "GET /admin/config.inc.php HTTP/1.1" 403 415
+192.168.1.70 - - [15/Jul/2023:14:35:12 +0000] "GET /.git/HEAD HTTP/1.1" 403 321
+192.168.1.70 - - [15/Jul/2023:14:35:13 +0000] "POST /xmlrpc.php HTTP/1.1" 200 234
+192.168.1.70 - - [15/Jul/2023:14:35:14 +0000] "GET /phpmyadmin/ HTTP/1.1" 404 321
+
+# DoS attack (high-frequency requests)
+192.168.1.80 - - [15/Jul/2023:14:36:01 +0000] "GET /index.html HTTP/1.1" 200 2326
+192.168.1.80 - - [15/Jul/2023:14:36:01 +0000] "GET /index.html HTTP/1.1" 200 2326
+192.168.1.80 - - [15/Jul/2023:14:36:01 +0000] "GET /index.html HTTP/1.1" 200 2326
+192.168.1.80 - - [15/Jul/2023:14:36:02 +0000] "GET /index.html HTTP/1.1" 200 2326
+192.168.1.80 - - [15/Jul/2023:14:36:02 +0000] "GET /index.html HTTP/1.1" 200 2326
+192.168.1.80 - - [15/Jul/2023:14:36:02 +0000] "GET /index.html HTTP/1.1" 200 2326
+192.168.1.80 - - [15/Jul/2023:14:36:03 +0000] "GET /index.html HTTP/1.1" 503 1024  # Server overload
+192.168.1.80 - - [15/Jul/2023:14:36:03 +0000] "GET /index.html HTTP/1.1" 503 1024
+
+# Continued scanning
+192.168.1.70 - - [15/Jul/2023:14:36:20 +0000] "GET /console/ HTTP/1.1" 404 321
+192.168.1.70 - - [15/Jul/2023:14:36:21 +0000] "GET /backup.sql HTTP/1.1" 403 415
